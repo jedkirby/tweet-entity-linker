@@ -8,9 +8,17 @@ class Url extends AbstractEntity
     /**
      * {@inhertDoc}
      */
+    public function getRequiredProperties()
+    {
+        return ['url', 'display_url'];
+    }
+
+    /**
+     * {@inhertDoc}
+     */
     public function getSearchText()
     {
-        return $this->getDataItem('url');
+        return $this->data['url'];
     }
 
     /**
@@ -20,8 +28,8 @@ class Url extends AbstractEntity
     {
         return sprintf(
             '<a href="%s" target="_blank">%s</a>',
-            $this->getDataItem('url'),
-            $this->getDataItem('display_url')
+            $this->data['url'],
+            $this->data['display_url']
         );
     }
 

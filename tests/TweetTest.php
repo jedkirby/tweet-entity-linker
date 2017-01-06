@@ -10,11 +10,10 @@ class TweetTest extends TestCase
 
     /**
      * @param string $endpoint
-     * @param boolean $assoc
      *
-     * @return stdClass|array
+     * @return array
      */
-    protected function getSampleApiResponse($endpoint, $assoc = false)
+    protected function getSampleApiResponse($endpoint)
     {
         return json_decode(
             file_get_contents(
@@ -23,7 +22,7 @@ class TweetTest extends TestCase
                     $endpoint
                 )
             ),
-            $assoc
+            true
         );
     }
 
@@ -31,20 +30,19 @@ class TweetTest extends TestCase
      * Create a new Tweet object from a sample API response.
      *
      * @param string $endpoint
-     * @param boolean $assoc
      *
      * @return Tweet
      */
-    protected function getSampleTweet($endpoint, $assoc = false)
+    protected function getSampleTweet($endpoint)
     {
 
-        $response = $this->getSampleApiResponse($endpoint, $assoc);
+        $response = $this->getSampleApiResponse($endpoint);
 
         return Tweet::make(
-            $response->text,
-            $response->entities->urls,
-            $response->entities->user_mentions,
-            $response->entities->hashtags
+            $response['text'],
+            $response['entities']['urls'],
+            $response['entities']['user_mentions'],
+            $response['entities']['hashtags']
         );
 
     }
@@ -83,54 +81,14 @@ class TweetTest extends TestCase
     }
 
     /**
-     * @return string
-     */
-    protected function getAllEntitiesCorrectString()
-    {
-        return 'This tweet has it all, it has got the links <a href="https://t.co/qeSnkprYiP" target="_blank">jedkirby.com</a> and <a href="https://t.co/Ed4omjYs" target="_blank">google.co.uk</a>, it has the hashtags #<a href="https://twitter.com/hashtag/Hashtag" target="_blank">Hashtag</a> and #<a href="https://twitter.com/hashtag/Another" target="_blank">Another</a>, and finally the user mentions for @<a href="https://twitter.com/jedkirby" target="_blank">jedkirby</a> and @<a href="https://twitter.com/google" target="_blank">google</a>.';
-    }
-
-    /**
      * @test
      */
     public function itParsesAllEntitiesCorrectly()
     {
         $this->assertEquals(
             $this->getSampleTweet('all-entities')->linkify(),
-            $this->getAllEntitiesCorrectString()
+            'This tweet has it all, it has got the links <a href="https://t.co/qeSnkprYiP" target="_blank">jedkirby.com</a> and <a href="https://t.co/Ed4omjYs" target="_blank">google.co.uk</a>, it has the hashtags #<a href="https://twitter.com/hashtag/Hashtag" target="_blank">Hashtag</a> and #<a href="https://twitter.com/hashtag/Another" target="_blank">Another</a>, and finally the user mentions for @<a href="https://twitter.com/jedkirby" target="_blank">jedkirby</a> and @<a href="https://twitter.com/google" target="_blank">google</a>.'
         );
-    }
-
-    /**
-     * @test
-     */
-    public function itHandlesObjectEntities()
-    {
-        $this->assertEquals(
-            $this->getSampleTweet('all-entities', false)->linkify(),
-            $this->getAllEntitiesCorrectString()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function itHandlesArrayEntities()
-    {
-
-        $response = $this->getSampleApiResponse('all-entities', true);
-        $tweet = Tweet::make(
-            $response['text'],
-            $response['entities']['urls'],
-            $response['entities']['user_mentions'],
-            $response['entities']['hashtags']
-        );
-
-        $this->assertEquals(
-            $tweet->linkify(),
-            $this->getAllEntitiesCorrectString()
-        );
-
     }
 
 }
