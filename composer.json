@@ -1,0 +1,28 @@
+{
+    "name": "jedkirby/tweet-entity-linker",
+    "description": "Convert entities, like images and links, into their HTML equivalents.",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "James Kirby",
+            "email": "github@jedkirby.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jedkirby\\TweetEntityLinker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Jedkirby\\TweetEntityLinker\\": "tests/"
+        }
+    }
+}
