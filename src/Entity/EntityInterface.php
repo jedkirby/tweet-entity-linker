@@ -6,6 +6,13 @@ interface EntityInterface
 {
 
     /**
+     * Return properties to validate on loading of the entity.
+     *
+     * @return array
+     */
+    public function getRequiredProperties();
+
+    /**
      * Return the text to search for.
      *
      * @return string

@@ -2,39 +2,46 @@
 
 namespace Jedkirby\TweetEntityLinker\Entity;
 
+use Jedkirby\TweetEntityLinker\Entity\Exception\RequiredPropertyException;
+
 abstract class AbstractEntity implements EntityInterface
 {
 
     /**
-     * @var stdClass
+     * @var array
      */
-    private $data;
+    protected $data = [];
 
     /**
-     * @param stdClass $data
+     * @param array $data
      */
-    public function __construct($data)
+    public function __construct(array $data = [])
     {
         $this->data = $data;
+        $this->validate();
     }
 
     /**
-     * Return a data item whether it's within an array or an object.
-     *
-     * @param string $key
-     * @param mixed $default
-     *
-     * @return mixed
+     * @throws RequiredPropertyException
+     * @return void
      */
-    protected function getDataItem($key, $default = '')
+    private function validate()
     {
-        if (is_object($this->data)) {
-            return $this->data->$key;
-        } elseif (is_array($this->data)) {
-            return $this->data[$key];
-        } else {
-            return $default;
+
+        $requiredProperties = $this->getRequiredProperties();
+        $missingProperties = array_diff(
+            $requiredProperties,
+            array_keys($this->data)
+        );
+
+        if ($missingProperties) {
+            throw new RequiredPropertyException(sprintf(
+                'The following properties "%s" are required for the entity "%s".',
+                implode(', ', $requiredProperties),
+                get_called_class()
+            ));
         }
+
     }
 
 }

@@ -4,15 +4,23 @@ namespace Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures;
 
 use Jedkirby\TweetEntityLinker\Entity\AbstractEntity;
 
-class Sample extends AbstractEntity
+class NoRequiredProperties extends AbstractEntity
 {
+
+    /**
+     * {@inhertDoc}
+     */
+    public function getRequiredProperties()
+    {
+        return [];
+    }
 
     /**
      * {@inhertDoc}
      */
     public function getSearchText()
     {
-        return $this->getDataItem('key', 'default');
+        return '';
     }
 
     /**

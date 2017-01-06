@@ -2,27 +2,28 @@
 
 namespace Tests\Jedkirby\TweetEntityLinker\Entity;
 
-use Jedkirby\TweetEntityLinker\Tweet;
 use PHPUnit_Framework_TestCase as TestCase;
-use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\Sample;
+use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\InvalidProperties;
+use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\NoRequiredProperties;
 
 class EntityTest extends TestCase
 {
 
     /**
      * @test
+     * @expectedException Jedkirby\TweetEntityLinker\Entity\Exception\RequiredPropertyException
      */
-    public function itUsesTheDefaultValueWhenGettingDataItem()
+    public function itMustHaveRequiredProperties()
     {
-
-        $entity = new Sample(false);
-
-        $this->assertEquals(
-            $entity->getSearchText(),
-            'default'
-        );
-
+        $entity = new InvalidProperties();
     }
 
+    /**
+     * @test
+     */
+    public function itDoesNotNeedToHaveRequiredProperties()
+    {
+        $entity = new NoRequiredProperties();
+    }
 
 }

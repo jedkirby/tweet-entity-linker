@@ -8,9 +8,17 @@ class UserMention extends AbstractEntity
     /**
      * {@inhertDoc}
      */
+    public function getRequiredProperties()
+    {
+        return ['screen_name'];
+    }
+
+    /**
+     * {@inhertDoc}
+     */
     public function getSearchText()
     {
-        return $this->getDataItem('screen_name');
+        return $this->data['screen_name'];
     }
 
     /**
@@ -20,8 +28,8 @@ class UserMention extends AbstractEntity
     {
         return sprintf(
             '<a href="https://twitter.com/%s" target="_blank">%s</a>',
-            $this->getDataItem('screen_name'),
-            $this->getDataItem('screen_name')
+            $this->data['screen_name'],
+            $this->data['screen_name']
         );
     }
 

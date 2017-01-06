@@ -8,9 +8,17 @@ class Hashtag extends AbstractEntity
     /**
      * {@inhertDoc}
      */
+    public function getRequiredProperties()
+    {
+        return ['text'];
+    }
+
+    /**
+     * {@inhertDoc}
+     */
     public function getSearchText()
     {
-        return $this->getDataItem('text');
+        return $this->data['text'];
     }
 
     /**
@@ -20,8 +28,8 @@ class Hashtag extends AbstractEntity
     {
         return sprintf(
             '<a href="https://twitter.com/hashtag/%s" target="_blank">%s</a>',
-            $this->getDataItem('text'),
-            $this->getDataItem('text')
+            $this->data['text'],
+            $this->data['text']
         );
     }
 
