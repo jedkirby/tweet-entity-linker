@@ -7,7 +7,6 @@ use PHPUnit_Framework_TestCase as TestCase;
 
 class TweetTest extends TestCase
 {
-
     /**
      * @param string $endpoint
      *
@@ -35,7 +34,6 @@ class TweetTest extends TestCase
      */
     protected function getSampleTweet($endpoint)
     {
-
         $response = $this->getSampleApiResponse($endpoint);
 
         return Tweet::make(
@@ -44,7 +42,6 @@ class TweetTest extends TestCase
             $response['entities']['user_mentions'],
             $response['entities']['hashtags']
         );
-
     }
 
     /**
@@ -90,5 +87,4 @@ class TweetTest extends TestCase
             'This tweet has it all, it has got the links <a href="https://t.co/qeSnkprYiP" target="_blank">jedkirby.com</a> and <a href="https://t.co/Ed4omjYs" target="_blank">google.co.uk</a>, it has the hashtags #<a href="https://twitter.com/hashtag/Hashtag" target="_blank">Hashtag</a> and #<a href="https://twitter.com/hashtag/Another" target="_blank">Another</a>, and finally the user mentions for @<a href="https://twitter.com/jedkirby" target="_blank">jedkirby</a> and @<a href="https://twitter.com/google" target="_blank">google</a>.'
         );
     }
-
 }

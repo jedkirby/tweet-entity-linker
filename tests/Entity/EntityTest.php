@@ -8,10 +8,9 @@ use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\NoRequiredProperties;
 
 class EntityTest extends TestCase
 {
-
     /**
      * @test
-     * @expectedException Jedkirby\TweetEntityLinker\Entity\Exception\RequiredPropertyException
+     * @expectedException \Jedkirby\TweetEntityLinker\Entity\Exception\RequiredPropertyException
      */
     public function itMustHaveRequiredProperties()
     {
@@ -25,5 +24,4 @@ class EntityTest extends TestCase
     {
         $entity = new NoRequiredProperties();
     }
-
 }

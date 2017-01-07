@@ -6,9 +6,8 @@ use Jedkirby\TweetEntityLinker\Entity\AbstractEntity;
 
 class InvalidProperties extends AbstractEntity
 {
-
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getRequiredProperties()
     {
@@ -16,7 +15,7 @@ class InvalidProperties extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getSearchText()
     {
@@ -24,11 +23,10 @@ class InvalidProperties extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getHtml()
     {
         return '';
     }
-
 }
