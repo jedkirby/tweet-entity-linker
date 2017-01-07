@@ -4,7 +4,6 @@ namespace Jedkirby\TweetEntityLinker\Entity;
 
 interface EntityInterface
 {
-
     /**
      * Return properties to validate on loading of the entity.
      *
@@ -25,5 +24,4 @@ interface EntityInterface
      * @return string
      */
     public function getHtml();
-
 }

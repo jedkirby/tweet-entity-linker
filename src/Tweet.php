@@ -4,7 +4,6 @@ namespace Jedkirby\TweetEntityLinker;
 
 class Tweet
 {
-
     /**
      * @var string
      */
@@ -30,7 +29,7 @@ class Tweet
      * @param array $urls
      * @param array $mentions
      * @param array $hashtags
-     * 
+     *
      * @return Tweet
      */
     public static function make($text, array $urls = [], array $mentions = [], array $hashtags = [])
@@ -59,7 +58,6 @@ class Tweet
      */
     public function linkify()
     {
-
         $entities = [];
 
         foreach ($this->hashtags as $hashtag) {
@@ -84,7 +82,5 @@ class Tweet
         }
 
         return $text;
-
     }
-
 }

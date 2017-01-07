@@ -6,7 +6,6 @@ use Jedkirby\TweetEntityLinker\Entity\Exception\RequiredPropertyException;
 
 abstract class AbstractEntity implements EntityInterface
 {
-
     /**
      * @var array
      */
@@ -23,11 +22,9 @@ abstract class AbstractEntity implements EntityInterface
 
     /**
      * @throws RequiredPropertyException
-     * @return void
      */
     private function validate()
     {
-
         $requiredProperties = $this->getRequiredProperties();
         $missingProperties = array_diff(
             $requiredProperties,
@@ -41,7 +38,5 @@ abstract class AbstractEntity implements EntityInterface
                 get_called_class()
             ));
         }
-
     }
-
 }

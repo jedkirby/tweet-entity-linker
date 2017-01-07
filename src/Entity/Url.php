@@ -4,9 +4,8 @@ namespace Jedkirby\TweetEntityLinker\Entity;
 
 class Url extends AbstractEntity
 {
-
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getRequiredProperties()
     {
@@ -14,7 +13,7 @@ class Url extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getSearchText()
     {
@@ -22,7 +21,7 @@ class Url extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getHtml()
     {
@@ -32,5 +31,4 @@ class Url extends AbstractEntity
             $this->data['display_url']
         );
     }
-
 }

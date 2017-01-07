@@ -4,9 +4,8 @@ namespace Jedkirby\TweetEntityLinker\Entity;
 
 class Hashtag extends AbstractEntity
 {
-
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getRequiredProperties()
     {
@@ -14,7 +13,7 @@ class Hashtag extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getSearchText()
     {
@@ -22,7 +21,7 @@ class Hashtag extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}
+     * {@inhertDoc}.
      */
     public function getHtml()
     {
@@ -32,5 +31,4 @@ class Hashtag extends AbstractEntity
             $this->data['text']
         );
     }
-
 }
