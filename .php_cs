@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/vendor/jedkirby/php-cs/src/Config.php';
+require_once realpath(__DIR__ . '/vendor/autoload.php');
 
 use PhpCsFixer\Finder;
 use Jedkirby\PhpCs\Config;
