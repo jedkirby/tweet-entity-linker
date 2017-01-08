@@ -5,6 +5,7 @@ enabled:
   - alpha_ordered_imports
 disabled:
   - phpdoc_align
+  - concat_without_spaces
 finder:
   name:
     - "*.php"
