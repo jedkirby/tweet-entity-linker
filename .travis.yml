@@ -6,7 +6,7 @@ php:
   - nightly
 
 install:
-  - composer install --dev --no-interaction
+  - composer install --no-interaction
   - composer dump-autoload --optimize
 
 script:
