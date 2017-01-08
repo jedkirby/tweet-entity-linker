@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures;
+namespace Jedkirby\TweetEntityLinker\Tests\Entity\Fixtures;
 
 use Jedkirby\TweetEntityLinker\Entity\AbstractEntity;
 

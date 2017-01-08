@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Jedkirby\\TweetEntityLinker\\": "tests/"
+            "Jedkirby\\TweetEntityLinker\\Tests\\": "tests/"
         }
     }
 }
