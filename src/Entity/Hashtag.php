@@ -5,6 +5,14 @@ namespace Jedkirby\TweetEntityLinker\Entity;
 class Hashtag extends AbstractEntity
 {
     /**
+     * @return string
+     */
+    private function getEntityKey()
+    {
+        return '#';
+    }
+
+    /**
      * {@inhertDoc}.
      */
     public function getRequiredProperties()
@@ -17,7 +25,7 @@ class Hashtag extends AbstractEntity
      */
     public function getSearchText()
     {
-        return $this->data['text'];
+        return $this->getEntityKey() . $this->data['text'];
     }
 
     /**
@@ -26,7 +34,8 @@ class Hashtag extends AbstractEntity
     public function getHtml()
     {
         return sprintf(
-            '<a href="https://twitter.com/hashtag/%s" target="_blank">%s</a>',
+            '%s<a href="https://twitter.com/hashtag/%s" target="_blank">%s</a>',
+            $this->getEntityKey(),
             $this->data['text'],
             $this->data['text']
         );
