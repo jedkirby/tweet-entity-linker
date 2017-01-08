@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Jedkirby\TweetEntityLinker\Entity;
+namespace Jedkirby\TweetEntityLinker\Tests\Entity;
 
+use Jedkirby\TweetEntityLinker\Tests\Entity\Fixtures\InvalidProperties;
+use Jedkirby\TweetEntityLinker\Tests\Entity\Fixtures\NoRequiredProperties;
 use PHPUnit_Framework_TestCase as TestCase;
-use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\InvalidProperties;
-use Tests\Jedkirby\TweetEntityLinker\Entity\Fixtures\NoRequiredProperties;
 
 class EntityTest extends TestCase
 {

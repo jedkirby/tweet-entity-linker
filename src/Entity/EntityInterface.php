@@ -2,6 +2,9 @@
 
 namespace Jedkirby\TweetEntityLinker\Entity;
 
+/**
+ * @codeCoverageIgnore
+ */
 interface EntityInterface
 {
     /**

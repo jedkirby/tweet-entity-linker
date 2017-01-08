@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Jedkirby\TweetEntityLinker;
+namespace Jedkirby\TweetEntityLinker\Tests;
 
 use Jedkirby\TweetEntityLinker\Tweet;
 use PHPUnit_Framework_TestCase as TestCase;
