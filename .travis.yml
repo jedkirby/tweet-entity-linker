@@ -11,8 +11,8 @@ before_script:
   - composer dump-autoload --optimize
 
 script:
-  - mkdir ./tests/logs/
+  - mkdir -p ./build/logs
   - ./vendor/bin/phpunit
 
 after_script:
-  - travis_retry php vendor/bin/coveralls -v
+  - php ./vendor/bin/coveralls -v
