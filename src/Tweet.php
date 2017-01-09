@@ -74,10 +74,11 @@ class Tweet
 
         $text = $this->text;
         foreach ($entities as $entity) {
-            $text = str_replace(
-                $entity->getSearchText(),
+            $text = preg_replace(
+                $entity->getSearchPattern(),
                 $entity->getHtml(),
-                $text
+                $text,
+                1
             );
         }
 

@@ -22,6 +22,13 @@ interface EntityInterface
     public function getSearchText();
 
     /**
+     * Return a pattern to be used by a regular expression for a search.
+     *
+     * @return string
+     */
+    public function getSearchPattern();
+
+    /**
      * Return the text to replace.
      *
      * @return string

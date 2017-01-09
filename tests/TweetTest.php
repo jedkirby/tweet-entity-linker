@@ -87,4 +87,15 @@ class TweetTest extends TestCase
             'This tweet has it all, it has got the links <a href="https://t.co/qeSnkprYiP" target="_blank">jedkirby.com</a> and <a href="https://t.co/Ed4omjYs" target="_blank">google.co.uk</a>, it has the hashtags #<a href="https://twitter.com/hashtag/Hashtag" target="_blank">Hashtag</a> and #<a href="https://twitter.com/hashtag/Another" target="_blank">Another</a>, and finally the user mentions for @<a href="https://twitter.com/jedkirby" target="_blank">jedkirby</a> and @<a href="https://twitter.com/google" target="_blank">google</a>.'
         );
     }
+
+    /**
+     * @test
+     */
+    public function itParsesDuplicateHashtagAndUserMentionCorrectly()
+    {
+        $this->assertEquals(
+            $this->getSampleTweet('hashtag-and-user-mention-duplicate-entity')->linkify(),
+            'This tweet hashtags #<a href="https://twitter.com/hashtag/jedkirby" target="_blank">jedkirby</a> and also mentions @<a href="https://twitter.com/jedkirby" target="_blank">jedkirby</a>'
+        );
+    }
 }
