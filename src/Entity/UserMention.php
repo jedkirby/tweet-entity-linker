@@ -5,12 +5,9 @@ namespace Jedkirby\TweetEntityLinker\Entity;
 class UserMention extends AbstractEntity
 {
     /**
-     * @return string
+     * @var string
      */
-    private function getEntityKey()
-    {
-        return '@';
-    }
+    const ENTITY_KEY = '@';
 
     /**
      * {@inhertdoc}.
@@ -25,7 +22,7 @@ class UserMention extends AbstractEntity
      */
     public function getSearchText()
     {
-        return $this->getEntityKey() . $this->data['screen_name'];
+        return self::ENTITY_KEY . $this->data['screen_name'];
     }
 
     /**
@@ -35,7 +32,7 @@ class UserMention extends AbstractEntity
     {
         return sprintf(
             '%s<a href="https://twitter.com/%s" target="_blank">%s</a>',
-            $this->getEntityKey(),
+            self::ENTITY_KEY,
             $this->data['screen_name'],
             $this->data['screen_name']
         );
