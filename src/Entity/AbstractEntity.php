@@ -21,6 +21,14 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
+     * {@inhertdoc}.
+     */
+    public function getSearchPattern()
+    {
+        return '/' . preg_quote($this->getSearchText(), '/') . '/';
+    }
+
+    /**
      * @throws RequiredPropertyException
      */
     private function validate()

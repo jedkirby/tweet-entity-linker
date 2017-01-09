@@ -13,7 +13,7 @@ class UserMention extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}.
+     * {@inhertdoc}.
      */
     public function getRequiredProperties()
     {
@@ -21,7 +21,7 @@ class UserMention extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}.
+     * {@inhertdoc}.
      */
     public function getSearchText()
     {
@@ -29,7 +29,7 @@ class UserMention extends AbstractEntity
     }
 
     /**
-     * {@inhertDoc}.
+     * {@inhertdoc}.
      */
     public function getHtml()
     {
