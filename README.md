@@ -32,7 +32,7 @@ The following pseudo code should help explain what's needed when using the respo
 ``` php
 $request = Api::get('https://api.twitter.com/1.1/statuses/show/123456');
 
-$tweet = new Tweet(
+$tweet = Tweet::make(
   $request['text'],
   $request['entities']['urls'],
   $request['entities']['user_mentions'],
