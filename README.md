@@ -100,7 +100,7 @@ $hashtags = [
 When putting all the above parameters together, you'd get the following:
 
 ``` php
-$tweet = new Tweet(
+$tweet = Tweet::make(
   $text,
   $urls,
   $mentions,
