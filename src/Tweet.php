@@ -4,7 +4,6 @@ namespace Jedkirby\TweetEntityLinker;
 
 class Tweet
 {
-
     /**
      * @var string
      */
