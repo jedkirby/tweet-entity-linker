@@ -25,6 +25,11 @@ class Tweet
     private $hashtags = [];
 
     /**
+     * @var array
+     */
+    private $cashtags = [];
+
+    /**
      * @param string $text
      * @param array $urls
      * @param array $mentions
@@ -32,9 +37,9 @@ class Tweet
      *
      * @return Tweet
      */
-    public static function make($text, array $urls = [], array $mentions = [], array $hashtags = [])
+    public static function make($text, array $urls = [], array $mentions = [], array $hashtags = [], array $cashtags = [])
     {
-        return new self($text, $urls, $mentions, $hashtags);
+        return new self($text, $urls, $mentions, $hashtags, $cashtags);
     }
 
     /**
@@ -42,13 +47,15 @@ class Tweet
      * @param array $urls
      * @param array $mentions
      * @param array $hashtags
+     * @param array $cashtags
      */
-    private function __construct($text, array $urls = [], array $mentions = [], array $hashtags = [])
+    private function __construct($text, array $urls = [], array $mentions = [], array $hashtags = [], array $cashtags = [])
     {
         $this->text = $text;
         $this->urls = $urls;
         $this->mentions = $mentions;
         $this->hashtags = $hashtags;
+        $this->cashtags = $cashtags;
     }
 
     /**
@@ -59,6 +66,10 @@ class Tweet
     public function linkify()
     {
         $entities = [];
+
+        foreach($this->cashtags as $cashtag) {
+            $entities[] = new Entity\Cashtag($cashtag);
+        }
 
         foreach ($this->hashtags as $hashtag) {
             $entities[] = new Entity\Hashtag($hashtag);
