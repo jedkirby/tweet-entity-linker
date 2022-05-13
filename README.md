@@ -36,7 +36,8 @@ $tweet = Tweet::make(
   $request['text'],
   $request['entities']['urls'],
   $request['entities']['user_mentions'],
-  $request['entities']['hashtags']
+  $request['entities']['hashtags'],
+  $request['entities']['cashtags']
 );
 ```
 
@@ -95,6 +96,18 @@ $hashtags = [
 ];
 ```
 
+#### Parameter 5: Cashtags
+
+The Hashtags parameter is an array of array's, of which it must contain only a `text` field:
+
+```php
+$cashtags = [
+  [
+    'text' => 'AAPL'  
+  ]
+];
+```
+
 #### Result
 
 When putting all the above parameters together, you'd get the following:
@@ -104,7 +117,8 @@ $tweet = Tweet::make(
   $text,
   $urls,
   $mentions,
-  $hashtags
+  $hashtags,
+  $cashtags
 );
 
 var_dump($tweet->linkify());
